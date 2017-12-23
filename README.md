@@ -298,8 +298,8 @@ gulp.task('minify-css', function() {
 - Init bash on folder of new project
 
 - Create gitignore archive
-> execute: touch gitignore
+> execute: touch .gitignore
 
 - Insert files to ignore on archive gitignore
-> name (name from archive)
-> name_from_folder (for ignore all content folder)
+- name (name from archive)
+- name_from_folder (for ignore all content folder)
