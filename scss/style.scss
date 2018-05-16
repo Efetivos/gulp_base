@@ -1,9 +1,16 @@
-@import'normal-reset'; @import 'alias-mixins';
+@import'partials/normal-reset';
+@import 'partials/alias-mixins';
+@import 'partials/footer';
+@import 'partials/menu';
 body {
-    background-color: #000;
+    background-color: white;
 }
 
 h1{
-    width: 90px;
-    color: #ffffff;
+    color: #571b1b;
+}
+
+* {
+    //color: red;
+    font-family: sans-serif;
 }

@@ -11,6 +11,11 @@ $cinza: #EFEFEF;
 	font-family: 'Titillium Web', sans-serif;
 }
 
+@mixin resptext{
+    font-size: calc(46px + 54 * ((53vw + 53vh) - 520px) / 820);
+}
+
+
 @mixin mobile {
 	@media only screen and (max-width: 960px) {
 		@content;		

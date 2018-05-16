@@ -44,6 +44,23 @@ gulp.task('changed', function (){
 
 ```
 
+### PUG
+> instal: npm install --save-dev gulp-pug
+- cli run: gulp views
+
+```bash
+
+var pug = require('gulp-pug');
+
+gulp.task('views', function buildHTML() {
+	return gulp.src('pug/*.pug')
+	.pipe(pug({
+	  pretty: true
+	}))
+	.pipe(gulp.dest('./'))
+  });
+```
+
 ### Watch
 
 > CRTL + C for stop
