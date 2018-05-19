@@ -1,6 +1,4 @@
-$roxo: #4a186f;
-$roxo2: #685973;
-$cinza: #EFEFEF;
+$color: red;
 
 
 @mixin serif {
@@ -34,7 +32,7 @@ $cinza: #EFEFEF;
 	font-size: 30px;
 	font-weight: 100;
 	letter-spacing: 1px;
-	color: $title;
+	color: $color;
 				@include desk {
 					font-size: 73px;			
 		}
@@ -143,29 +141,30 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .e-white {
-	color: #fff;
-}
-
-.e-black {
-	color: #000;
-}
-.e-gold {
-	color: $gold;
-}
-
-.e-gray {
-	color: $pGray;
-}
-
-.e-black-e {
-	background-color: #000;
-}
-.e-white-e {
 	background-color: #fff;
 }
-.e-gold-e {
-	background-color: #cc9964;
+.t-white {
+	color: #fff;
 }
+.e-black {
+	background-color: #000;
+}
+.t-black {
+	color: #000;
+}
+.e-color {
+	background-color: $color;
+}
+.t-color {
+	color: $color;
+}
+.e-gray {
+	background-color: #aaa;
+}
+.t-gray {
+	color: #aaa;
+}
+
 .e-flex {
     @include flex-center;
 }
@@ -211,23 +210,22 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .e-serif {
-    font-family: 'Forum', serif;
+    @include serif;
 }
 .e-sans {
-    font-family: 'Roboto', sans-serif;  
+    @include sans;
 }
 .e-hidden {
 	overflow: hidden;
 }
 
-.curp {
+.e-curp {
 	cursor: pointer;
 }
 
 h1 {
 	@include serif;
 	font-size: 24px;
-	color: $gold;
 	@include desk {
 		font-size: 36px;
 	}
@@ -246,7 +244,6 @@ p {
 h2 {
 	@include sans;
 	font-weight: bold;
-	color: $gold;
 }
 
 .e-upper {

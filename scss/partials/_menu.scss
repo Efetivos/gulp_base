@@ -78,11 +78,13 @@ header {
             position: absolute;
             right: 3vw;
             top: 5vh;
+            z-index: 10;
             @include mobile {
                 display: none;
             }
             a.link-menu-desk {
                 @include sans;
+                z-index: 10;
                 padding: 5px 12px;
                 color: #123;
                 text-decoration: none;

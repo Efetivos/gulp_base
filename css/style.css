@@ -201,6 +201,30 @@ table {
 a {
   text-decoration: none; }
 
+.e-white {
+  background-color: #fff; }
+
+.t-white {
+  color: #fff; }
+
+.e-black {
+  background-color: #000; }
+
+.t-black {
+  color: #000; }
+
+.e-color {
+  background-color: red; }
+
+.t-color {
+  color: red; }
+
+.e-gray {
+  background-color: #aaa; }
+
+.t-gray {
+  color: #aaa; }
+
 .e-flex {
   display: flex;
   justify-content: center;
@@ -212,17 +236,28 @@ a {
   align-items: center;
   flex-direction: column; }
 
+.e-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
 .e-rel {
   position: relative; }
 
 .e-abs {
   position: absolute; }
 
+.e-fixed {
+  position: fixed; }
+
 .e-wp {
   width: 100%; }
 
 .e-hp {
   height: 100%; }
+
+.e-85 {
+  width: 85vw; }
 
 .e-wvw {
   width: 100vw; }
@@ -235,6 +270,53 @@ a {
 
 .e-img-fit {
   object-fit: cover; }
+
+.e-serif {
+  font-family: 'Vidaloka', serif; }
+
+.e-sans {
+  font-family: 'Titillium Web', sans-serif; }
+
+.e-hidden {
+  overflow: hidden; }
+
+.e-curp {
+  cursor: pointer; }
+
+h1 {
+  font-family: 'Vidaloka', serif;
+  font-size: 24px; }
+  @media only screen and (min-width: 1025px) {
+    h1 {
+      font-size: 36px; } }
+
+p {
+  font-family: 'Titillium Web', sans-serif;
+  margin-top: 45px;
+  font-size: 12px;
+  line-height: 22px; }
+  @media only screen and (min-width: 1025px) {
+    p {
+      font-size: 14px; } }
+
+h2 {
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: bold; }
+
+.e-upper {
+  text-transform: uppercase; }
+
+button {
+  border: none;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  outline: 0; }
+
+body {
+  overflow-x: hidden; }
 
 footer {
   display: flex;
@@ -380,7 +462,9 @@ header .holder-header .box-logo-main {
 header .holder-header .box-links-desk {
   position: absolute;
   right: 3vw;
-  top: 5vh; }
+  top: 5vh;
+  z-index: 10;
+  }
   @media only screen and (max-width: 960px) {
     header .holder-header .box-links-desk {
       display: none; } }
