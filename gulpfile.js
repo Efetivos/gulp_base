@@ -3,8 +3,8 @@ var changed = require ('gulp-changed');
 var scss = require ('gulp-sass');
 var browserSync = require('browser-sync').create();
 var uglify = require ('gulp-uglify');
-var minifyCSS = require ('gulp-minify-css');
 var pug = require('gulp-pug');
+var concat = require('gulp-concat');
 
 //Vars  Changed
 var SRC = './scss/**/*.scss';
@@ -32,6 +32,8 @@ gulp.task('serve', ['sass','views'], function(){
 //Watch
 gulp.watch('./scss/**/*.scss',['sass']);
 gulp.watch('./pug/**/*.pug',['views']);
+gulp.watch('./js/requires/*.js',['concat']);
+gulp.watch(['./pug/**/*.pug','*.php','./partials/**/*.php' ]).on('change', browserSync.reload);
 gulp.watch('./js/*js').on('change', browserSync.reload);
 gulp.watch('./*html').on('change', browserSync.reload);
 
@@ -66,14 +68,13 @@ gulp.task('ugly', function() {
 
 });
 
-//Minify Css
-gulp.task('minify-css', function() {
-	gulp.src('./css/*.css')
-	.pipe(minifyCSS({keepSpecialComments:1}))
-	.pipe(gulp.dest('minified-css'));
-
+//Concat
+gulp.task('concat', function() {
+	return gulp.src('./js/requires/*.js')
+	.pipe(concat('main.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('js'));
 });
 
-
-gulp.task('default', ['serve','views']);
+gulp.task('default', ['serve','views','concat']);
 
