@@ -7,13 +7,13 @@ var minifyCSS = require ('gulp-minify-css');
 var pug = require('gulp-pug');
 
 //Vars  Changed
-var SRC = './scss/*.scss';
+var SRC = './scss/**/*.scss';
 var DEST = 'dist';
 
 
 //PUG
 gulp.task('views', function buildHTML() {
-	return gulp.src('pug/*.pug')
+	return gulp.src('pug/**/*.pug')
 	.pipe(pug({
 	  pretty: true
 	}))
@@ -30,8 +30,8 @@ gulp.task('serve', ['sass','views'], function(){
 
 
 //Watch
-gulp.watch('./scss/*.scss',['sass']);
-gulp.watch('./pug/*.pug',['views']);
+gulp.watch('./scss/**/*.scss',['sass']);
+gulp.watch('./pug/**/*.pug',['views']);
 gulp.watch('./js/*js').on('change', browserSync.reload);
 gulp.watch('./*html').on('change', browserSync.reload);
 
@@ -39,9 +39,9 @@ gulp.watch('./*html').on('change', browserSync.reload);
 //Scss
 gulp.task('sass', function() {
  gulp.src('scss/*.scss')
-	.pipe(scss())
+	.pipe(scss({outputStyle:'compressed'}))
 	.pipe(gulp.dest('css'))
-	.pipe(browserSync.stream());;
+	.pipe(browserSync.stream());
 });
 
 
@@ -76,23 +76,4 @@ gulp.task('minify-css', function() {
 
 
 gulp.task('default', ['serve','views']);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
