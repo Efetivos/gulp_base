@@ -63,7 +63,6 @@ gulp.task('watch', function(){
 //Uglify Js
 gulp.task('ugly', function() {
 	return gulp.src('./js/*.js')
-	.pipe(uglify())
 	.pipe(gulp.dest('minified-js'));
 
 });
@@ -72,7 +71,6 @@ gulp.task('ugly', function() {
 gulp.task('concat', function() {
 	return gulp.src('./js/requires/*.js')
 	.pipe(concat('main.js'))
-	.pipe(uglify())
 	.pipe(gulp.dest('js'));
 });
 
