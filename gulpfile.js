@@ -1,13 +1,13 @@
 var gulp = require ('gulp');
 var changed = require ('gulp-changed');
-var scss = require ('gulp-sass');
+var sass = require ('gulp-sass');
 var browserSync = require('browser-sync').create();
 var uglify = require ('gulp-uglify');
 var pug = require('gulp-pug');
 var concat = require('gulp-concat');
 
 //Vars  Changed
-var SRC = './scss/**/*.scss';
+var SRC = './sass/**/*.sass';
 var DEST = 'dist';
 
 
@@ -30,7 +30,7 @@ gulp.task('serve', ['sass','views'], function(){
 
 
 //Watch
-gulp.watch('./scss/**/*.scss',['sass']);
+gulp.watch('./sass/**/*.sass',['sass']);
 gulp.watch('./pug/**/*.pug',['views']);
 gulp.watch('./js/requires/*.js',['concat']);
 gulp.watch(['./pug/**/*.pug','*.php','./partials/**/*.php' ]).on('change', browserSync.reload);
@@ -38,10 +38,10 @@ gulp.watch('./js/*js').on('change', browserSync.reload);
 gulp.watch('./*html').on('change', browserSync.reload);
 
 
-//Scss
+//sass
 gulp.task('sass', function() {
- gulp.src('scss/*.scss')
-	.pipe(scss({outputStyle:'compressed'}))
+ gulp.src('sass/*.sass')
+	.pipe(sass({outputStyle:'compressed'}))
 	.pipe(gulp.dest('css'))
 	.pipe(browserSync.stream());
 });
