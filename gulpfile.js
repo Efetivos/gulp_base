@@ -32,7 +32,7 @@ gulp.task('serve', ['sass','views'], function(){
 //Watch
 gulp.watch('./sass/**/*.sass',['sass']);
 gulp.watch('./pug/**/*.pug',['views']);
-gulp.watch('./js/requires/*.js',['concat']);
+gulp.watch('./js/*.js',['concat']);
 gulp.watch(['./pug/**/*.pug','*.php','./partials/**/*.php' ]).on('change', browserSync.reload);
 gulp.watch('./js/*js').on('change', browserSync.reload);
 gulp.watch('./*html').on('change', browserSync.reload);
@@ -67,11 +67,14 @@ gulp.task('ugly', function() {
 
 });
 
+
+
 //Concat
 gulp.task('concat', function() {
-	return gulp.src('./js/requires/*.js')
+	return gulp.src('./js/*.js')
 	.pipe(concat('main.js'))
-	.pipe(gulp.dest('js'));
+	.pipe(gulp.dest('./js-compiled/'))
+	.pipe(browserSync.stream({stream: true}));
 });
 
 gulp.task('default', ['serve','views','concat']);
